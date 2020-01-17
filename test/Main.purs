@@ -24,14 +24,14 @@ eqUpToReOrdering as bs =
 -- Symmetry group of the square.
 -- "a" is rotation by 90 degrees
 -- "b" is flippy
-c4Equations :: Array Equation
+c4Equations :: Array (Equation Char)
 c4Equations =
   [ Equation (arr "aaaa") (arr "")
   , Equation (arr "bb") (arr "")
   , Equation (arr "aaab") (arr "ba")
   ]
 
-c4Rules :: Array Rule
+c4Rules :: Array (Rule Char)
 c4Rules =
   [ Rule (arr "baa") (arr "aab")
   , Rule (arr "bab") (arr "aaa")
