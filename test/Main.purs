@@ -8,9 +8,9 @@ import Data.String.CodeUnits (toCharArray)
 import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Effect.Class.Console as Console
-import KnuthBendix (Equation(..), Rule(..), applyRule, contains, criticalPairs, eqModuloTheory, knuthBendix, normalise, overlaps, rulesFromPairs, shortlex)
+import StringRewriting.KnuthBendix (Equation(..), Rule(..), applyRule, contains, criticalPairs, eqModuloTheory, knuthBendix, normalise, overlaps, rulesFromPairs, shortlex)
 import Test.Assert (assert, assertFalse)
-import Utils (isInfixOf, isPrefixOf, splitSubArray)
+import StringRewriting.Utils (isInfixOf, isPrefixOf, splitSubArray)
 
 arr :: String -> Array Char
 arr = toCharArray

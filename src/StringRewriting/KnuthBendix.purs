@@ -1,6 +1,6 @@
 -- | Largely informed by
 -- | https://haskellformaths.blogspot.com/2010/05/string-rewriting-and-knuth-bendix.html
-module KnuthBendix where
+module StringRewriting.KnuthBendix where
 
 import Prelude
 
@@ -8,23 +8,29 @@ import Data.Array (catMaybes, concatMap, cons, drop, dropEnd, elem, filter, leng
 import Data.Foldable (foldl)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Tuple (Tuple(..))
-import Utils (isPrefixOf, splitSubArray)
+import StringRewriting.Utils (isPrefixOf, splitSubArray)
 
 type Word = Array
 
 data Equation a = Equation (Word a) (Word a)
+
 derive instance ordEquation :: Ord a => Ord (Equation a)
+
 instance eqEquation :: Eq a => Eq (Equation a) where
   eq (Equation leftA rightA) (Equation leftB rightB) =
     leftA == leftB && rightA == rightB
     ||
     leftA == rightB && rightA == leftB
+
 instance showEquation :: Show a => Show (Equation a) where
   show (Equation left right) = "(" <> show left <> " == " <> show right <> ")"
 
 data Rule a = Rule (Word a) (Word a)
+
 derive instance ordRule :: Ord a => Ord (Rule a)
+
 derive instance eqRule :: Eq a => Eq (Rule a)
+
 instance showRule :: Show a => Show (Rule a) where
   show (Rule left right) = "(" <> show left <> " --> " <> show right <> ")"
 

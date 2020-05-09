@@ -1,4 +1,4 @@
-module Utils where
+module StringRewriting.Utils where
 
 import Prelude
 import Data.Array (uncons, drop, length, snoc)
